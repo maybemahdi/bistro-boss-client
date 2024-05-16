@@ -7,7 +7,7 @@ const ChefService = () => {
         objectFit: "cover",
       }}
     >
-      <div className="bg-black bg-opacity-30"></div>
+      <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="my-[100px] py-24 bg-white text-black">
           <h1 className="mb-5 text-5xl font-cinzel">Bistro Boss</h1>

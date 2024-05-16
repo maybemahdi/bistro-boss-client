@@ -16,8 +16,12 @@ const Recommendations = () => {
           />
           <div className="my-5 w-3/4 mx-auto flex flex-col gap-1 items-center justify-center">
             <h5 className="text-center font-semibold">Caeser Salad</h5>
-            <p className="text-center font-normal">Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.</p>
-            <button className="btn btn-outline border-b-4 mt-3 text-[#BB8506]">Add to Cart</button>
+            <p className="text-center font-normal">
+              Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.
+            </p>
+            <button className="btn btn-outline border-b-4 mt-3 text-[#BB8506]">
+              Add to Cart
+            </button>
           </div>
         </div>
         <div className="bg-[#F3F3F3]">
@@ -28,8 +32,12 @@ const Recommendations = () => {
           />
           <div className="my-5 w-3/4 mx-auto flex flex-col gap-1 items-center justify-center">
             <h5 className="text-center font-semibold">Caeser Salad</h5>
-            <p className="text-center font-normal">Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.</p>
-            <button className="btn btn-outline border-0 bg-black mt-3 text-[#BB8506]">Add to Cart</button>
+            <p className="text-center font-normal">
+              Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.
+            </p>
+            <button className="btn btn-outline border-0 bg-black mt-3 text-[#BB8506]">
+              Add to Cart
+            </button>
           </div>
         </div>
         <div className="bg-[#F3F3F3]">
@@ -40,8 +48,12 @@ const Recommendations = () => {
           />
           <div className="my-5 w-3/4 mx-auto flex flex-col gap-1 items-center justify-center">
             <h5 className="text-center font-semibold">Caeser Salad</h5>
-            <p className="text-center font-normal">Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.</p>
-            <button className="btn btn-outline border-b-4 mt-3 text-[#BB8506]">Add to Cart</button>
+            <p className="text-center font-normal">
+              Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.
+            </p>
+            <button className="btn btn-outline border-b-4 mt-3 text-[#BB8506]">
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>
