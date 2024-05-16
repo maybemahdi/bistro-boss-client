@@ -1,6 +1,9 @@
 .space {
     letter-spacing: 9.12px;
 }
+.featured {
+    background-image: url('../assets/home/chef-service.jpg');
+}
 @media only screen and (max-width: 600px) {
     .space {
         letter-spacing: 4.12px;
