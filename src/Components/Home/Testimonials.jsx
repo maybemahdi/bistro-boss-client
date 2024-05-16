@@ -26,7 +26,7 @@ const Testimonials = () => {
   }, []);
   if (loading) return <Loader />;
   return (
-    <div className="my-10 w-[85%] mx-auto">
+    <div className="my-20 w-[85%] mx-auto">
       <SectionStart
         heading={"TESTIMONIALS"}
         subHeading={"---What Our Clients Say---"}
