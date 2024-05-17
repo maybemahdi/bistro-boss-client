@@ -1,19 +1,25 @@
 import { useEffect, useState } from "react";
-import SectionStart from "./SectionStart";
 import axios from "axios";
 import Loader from "../Loader";
+import SectionStart from "../SectionStart";
+import useMenu from "../../Hooks/useMenu";
 
 const Menu = () => {
-  const [menu, setMenu] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { menu, loading } = useMenu();
+  const [popular, setPopular] = useState([]);
   useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await axios.get("/menu.json");
-      setMenu(data.filter((d) => d.category === "popular"));
-      setLoading(false);
-    };
-    fetchData();
-  }, []);
+    setPopular(menu.filter((d) => d.category === "popular"));
+  }, [menu]);
+  // const [menu, setMenu] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const { data } = await axios.get("/menu.json");
+  //     setMenu(data.filter((d) => d.category === "popular"));
+  //     setLoading(false);
+  //   };
+  //   fetchData();
+  // }, []);
   if (loading) return <Loader />;
   return (
     <div className="my-12 w-[85%] mx-auto flex justify-center items-center flex-col">
@@ -22,7 +28,7 @@ const Menu = () => {
         subHeading={"---Check it out---"}
       />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-10">
-        {menu.map((singleMenu) => (
+        {popular.map((singleMenu) => (
           <div className="flex items-center gap-4" key={singleMenu._id}>
             <img
               style={{

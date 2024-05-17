@@ -1,5 +1,5 @@
 import cover from "../../assets/home/featured.jpg";
-import SectionStart from "./SectionStart";
+import SectionStart from "../SectionStart";
 const FromOurMenu = () => {
   return (
     <div

@@ -1,4 +1,4 @@
-import SectionStart from "./SectionStart";
+import SectionStart from "../SectionStart";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 

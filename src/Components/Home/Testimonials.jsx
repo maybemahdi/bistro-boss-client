@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import SectionStart from "./SectionStart";
 import axios from "axios";
 import Loader from "../Loader";
+import SectionStart from "../SectionStart";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles

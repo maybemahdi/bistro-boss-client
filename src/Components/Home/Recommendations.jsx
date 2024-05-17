@@ -1,4 +1,4 @@
-import SectionStart from "./SectionStart";
+import SectionStart from "../SectionStart";
 import salad from "../../assets/home/slide1.jpg";
 const Recommendations = () => {
   return (
