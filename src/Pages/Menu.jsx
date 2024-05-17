@@ -1,3 +1,4 @@
+import { ScrollRestoration } from "react-router-dom";
 import CommonBanner from "../Components/CommonBanner";
 import Dessert from "../Components/Menu/Dessert";
 import Pizza from "../Components/Menu/Pizza";
@@ -9,6 +10,7 @@ import image from "../assets/menu/banner3.jpg";
 const Menu = () => {
   return (
     <div className="mb-10">
+      <ScrollRestoration/>
       <CommonBanner
         image={image}
         heading={"OUR MENU"}

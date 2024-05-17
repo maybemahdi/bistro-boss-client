@@ -1,3 +1,4 @@
+import { ScrollRestoration } from "react-router-dom";
 import CallUs from "../Components/Home/CallUs";
 import Category from "../Components/Home/Category";
 import ChefService from "../Components/Home/ChefService";
@@ -11,6 +12,7 @@ import Testimonials from "../Components/Home/Testimonials";
 const Home = () => {
     return (
         <div>
+            <ScrollRestoration/>
             <Slider/>
             <Category/>
             <ChefService/>

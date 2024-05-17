@@ -3,13 +3,14 @@ import image from "../../assets/menu/soup-bg.jpg";
 import CommonBanner from "../CommonBanner";
 import useMenu from "../../Hooks/useMenu";
 import Loader from "../Loader";
+import { Link } from "react-router-dom";
 const Soup = () => {
-    const { menu, loading } = useMenu();
-    const [soup, setSoup] = useState([]);
-    useEffect(() => {
-      setSoup(menu.filter((s) => s.category === "soup"));
-    }, [menu]);
-    if (loading) return <Loader />;
+  const { menu, loading } = useMenu();
+  const [soup, setSoup] = useState([]);
+  useEffect(() => {
+    setSoup(menu.filter((s) => s.category === "soup"));
+  }, [menu]);
+  if (loading) return <Loader />;
   return (
     <div className="my-12 w-[85%] mx-auto flex justify-center items-center flex-col">
       <CommonBanner
@@ -20,7 +21,7 @@ const Soup = () => {
         }
       />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-16">
-      {soup?.map((s) => (
+        {soup?.map((s) => (
           <div key={s._id} className="flex items-center gap-4">
             <img
               style={{
@@ -37,9 +38,14 @@ const Soup = () => {
             <p className="text-[#BB8506]">${s.price}</p>
           </div>
         ))}
-        <button className="btn btn-outline text-center md:col-span-2 w-fit mx-auto my-3 border-b-4">
-          Order Your Favorite Food
-        </button>
+        <Link
+          to={"/shop?index=2"}
+          className="text-center md:col-span-2 w-fit mx-auto my-3"
+        >
+          <button className="btn btn-outline  border-b-4">
+            Order Your Favorite Food
+          </button>
+        </Link>
       </div>
     </div>
   );

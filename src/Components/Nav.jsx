@@ -21,7 +21,17 @@ const Nav = () => {
           }
           to={"/menu"}
         >
-          Menu
+         Our Menu
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
+          }
+          to={"/shop"}
+        >
+         Our Shop
         </NavLink>
       </li>
     </>

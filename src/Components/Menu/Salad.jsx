@@ -3,6 +3,7 @@ import image from "../../assets/menu/salad-bg.jpg";
 import useMenu from "../../Hooks/useMenu";
 import { useEffect, useState } from "react";
 import Loader from "../Loader";
+import { Link } from "react-router-dom";
 
 const Salad = () => {
   const { menu, loading } = useMenu();
@@ -38,9 +39,14 @@ const Salad = () => {
             <p className="text-[#BB8506]">${s.price}</p>
           </div>
         ))}
-        <button className="btn btn-outline text-center md:col-span-2 w-fit mx-auto my-3 border-b-4">
-          Order Your Favorite Food
-        </button>
+        <Link
+          to={"/shop?index=0"}
+          className="text-center md:col-span-2 w-fit mx-auto my-3"
+        >
+          <button className="btn btn-outline  border-b-4">
+            Order Your Favorite Food
+          </button>
+        </Link>
       </div>
     </div>
   );
