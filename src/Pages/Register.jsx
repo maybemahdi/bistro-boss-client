@@ -25,7 +25,7 @@ const Register = () => {
       console.log(result);
       await updateProfile(auth.currentUser, {
         displayName: data.name,
-        photoURL: null,
+        photoURL: data.photo,
       });
       reset();
       navigate(location.state ? location.state : "/");
@@ -61,6 +61,21 @@ const Register = () => {
             />
             {errors.name && (
               <p className="text-red-500 mt-2">This field is required</p>
+            )}
+            <label className="font-medium block" htmlFor="photo">
+              Photo URL
+            </label>
+            <input
+              className="block p-3 my-2 w-[330px]"
+              type="text"
+              id="photo"
+              name="photo"
+              {...register("photo", { required: true })}
+              placeholder="Enter Your Photo URL"
+              data-temp-mail-org='0'
+            />
+            {errors.photo && (
+              <p className="text-red-500 mt-2">Photo URL is required</p>
             )}
             <label className="font-medium block" htmlFor="email">
               Email

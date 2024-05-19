@@ -94,12 +94,21 @@ const Nav = () => {
         </div>
         {user && (
           <>
-            <button onClick={()=> {
-              logOut()
-              .then(toast.success("Logged Out Successful"))
-            }} className="btn btn-outline border-white text-white">Log Out</button>
-            <FaUserAlt size={20} />
+            <button
+              onClick={() => {
+                logOut().then(toast.success("Logged Out Successful"));
+              }}
+              className="btn btn-outline border-white text-white"
+            >
+              Log Out
+            </button>
+            {/* <FaUserAlt size={20} /> */}
           </>
+        )}
+        {user.photoURL ? (
+          <img className="w-11 h-11 rounded-full" src={user.photoURL} alt="" />
+        ) : (
+          <FaUserAlt size={20} />
         )}
       </div>
     </div>
