@@ -3,6 +3,7 @@ import axios from "axios";
 import Loader from "../Loader";
 import SectionStart from "../SectionStart";
 import useMenu from "../../Hooks/useMenu";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   const { menu, loading } = useMenu();
@@ -46,7 +47,7 @@ const Menu = () => {
           </div>
         ))}
       </div>
-      <button className="btn btn-outline border-b-4">View Full Menu</button>
+      <Link to={'/shop'} className="btn btn-outline border-b-4">View Full Menu</Link>
     </div>
   );
 };

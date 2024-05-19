@@ -4,6 +4,13 @@
 .featured {
     background-image: url('../assets/home/chef-service.jpg');
 }
+.login-bg {
+    background-image: url('../assets/others/authentication.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
 @media only screen and (max-width: 600px) {
     .space {
         letter-spacing: 4.12px;

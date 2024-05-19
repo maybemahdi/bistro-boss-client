@@ -6,6 +6,7 @@ import { ScrollRestoration, useLocation } from "react-router-dom";
 const Shop = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
+  console.log(queryParams)
   const index = queryParams.get("index");
   return (
     <div className="mb-10">

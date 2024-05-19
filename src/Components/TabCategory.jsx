@@ -11,7 +11,7 @@ const TabCategory = ({index}) => {
   const soups = menu.filter((m) => m.category === "soup");
   const desserts = menu.filter((m) => m.category === "dessert");
   const drinks = menu.filter((m) => m.category === "drinks");
-  const [tabIndex, setTabIndex] = useState(index ? index : 0)
+  const [tabIndex, setTabIndex] = useState(index ? parseFloat(index) : 0)
   if(loading) return <Loader/>
   return (
     <div className="my-10 w-[85%] mx-auto flex items-center justify-center">
