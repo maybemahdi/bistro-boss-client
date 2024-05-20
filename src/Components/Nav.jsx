@@ -2,10 +2,12 @@ import { Link, NavLink } from "react-router-dom";
 import "./Shared.css";
 import useAuth from "../Hooks/useAuth";
 import toast from "react-hot-toast";
-import { FaUserAlt } from "react-icons/fa";
+import { FaShoppingCart, FaUserAlt } from "react-icons/fa";
+import useCart from "../Hooks/useCart";
 
 const Nav = () => {
   const { user, logOut } = useAuth();
+  const { cart } = useCart();
   const navLinks = (
     <>
       <li>
@@ -94,6 +96,14 @@ const Nav = () => {
         </div>
         {user && (
           <>
+            <div className="indicator mr-4">
+              <span className="indicator-item badge badge-secondary">
+                +{cart?.length}
+              </span>
+              <button className="py-1 px-3">
+                <FaShoppingCart size={20} />
+              </button>
+            </div>
             <button
               onClick={() => {
                 logOut().then(toast.success("Logged Out Successful"));
@@ -105,7 +115,7 @@ const Nav = () => {
             {/* <FaUserAlt size={20} /> */}
           </>
         )}
-        {user.photoURL ? (
+        {user?.photoURL ? (
           <img className="w-11 h-11 rounded-full" src={user.photoURL} alt="" />
         ) : (
           <FaUserAlt size={20} />

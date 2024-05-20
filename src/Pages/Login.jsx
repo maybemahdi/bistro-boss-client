@@ -19,6 +19,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { signIn, setLoading } = useAuth();
+  const from = location.state?.from?.pathname || "/";
   useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
@@ -40,7 +41,7 @@ const Login = () => {
     console.log(data);
     try {
       await signIn(data.email, data.password);
-      navigate(location.state ? location.state : "/");
+      navigate(from, { replace: true });
       reset();
       toast.success("Logged in Successful");
     } catch (err) {
