@@ -1,15 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import useAuth from "./useAuth";
 
 const useCart = () => {
+  const { user } = useAuth();
   const {
-    data: cart=[],
+    data: cart = [],
     refetch,
     isLoading,
   } = useQuery({
     queryKey: ["cart"],
     queryFn: async () => {
-      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/carts`);
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_URL}/carts?email=${user.email}`
+      );
       return data;
     },
   });

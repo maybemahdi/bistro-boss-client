@@ -5,6 +5,14 @@ import Menu from "../Pages/Menu";
 import Shop from "../Pages/Shop";
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
+import DashboardLayout from "../Layout/DashboardLayout";
+import MyCart from "../Pages/Dashboard/MyCart";
+import UserHome from "../Pages/Dashboard/UserHome";
+import MyReservation from "../Pages/Dashboard/MyReservation";
+import MyPaymentHistory from "../Pages/Dashboard/MyPaymentHistory";
+import AddReview from "../Pages/Dashboard/AddReview";
+import MyBooking from "../Pages/Dashboard/MyBooking";
+import PrivateRoute from "../Routes/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -32,5 +40,39 @@ export const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "/dashboard/userHome",
+        element: <UserHome />,
+      },
+      {
+        path: "/dashboard/myReservation",
+        element: <MyReservation />,
+      },
+      {
+        path: "/dashboard/myPaymentHistory",
+        element: <MyPaymentHistory />,
+      },
+      {
+        path: "/dashboard/myCart",
+        element: <MyCart />,
+      },
+      {
+        path: "/dashboard/addReview",
+        element: <AddReview />,
+      },
+      {
+        path: "/dashboard/myBooking",
+        element: <MyBooking />,
+      },
+    ],
   },
 ]);

@@ -40,6 +40,18 @@ const Nav = () => {
           Our Shop
         </NavLink>
       </li>
+      {user && (
+        <li>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
+            }
+            to={"/dashboard/userHome"}
+          >
+            Dashboard
+          </NavLink>
+        </li>
+      )}
       {!user && (
         <li>
           <NavLink
@@ -96,14 +108,14 @@ const Nav = () => {
         </div>
         {user && (
           <>
-            <div className="indicator mr-4">
+            <Link to={"/dashboard/myCart"} className="indicator mr-4">
               <span className="indicator-item badge badge-secondary">
                 +{cart?.length}
               </span>
               <button className="py-1 px-3">
                 <FaShoppingCart size={20} />
               </button>
-            </div>
+            </Link>
             <button
               onClick={() => {
                 logOut().then(toast.success("Logged Out Successful"));
