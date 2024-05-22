@@ -46,7 +46,7 @@ const Nav = () => {
             className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "text-[#EEFF25]" : ""
             }
-            to={"/dashboard/userHome"}
+            to={"/dashboard"}
           >
             Dashboard
           </NavLink>

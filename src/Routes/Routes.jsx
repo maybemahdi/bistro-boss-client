@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "/dashboard/userHome",
+        index: true,
         element: <UserHome />,
       },
       {

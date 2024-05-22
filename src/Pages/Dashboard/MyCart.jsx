@@ -43,15 +43,15 @@ const MyCart = () => {
         </p>
         <hr color="#E8E8E8" />
         <h3
-          className={`text-[40px] border-y-4 text-center border-[#E8E8E8] text-[#151515] px-4 py-3`}
+          className={`md:text-[40px] tex-[28px] border-y-4 text-center border-[#E8E8E8] text-[#151515] px-4 py-3`}
         >
           WANNA ADD MORE?
         </h3>
       </div>
       <div className="bg-[#FFFFFF] shadow p-8 md:p-[50px]">
-        <div className="flex items-center md:gap-[100px] font-cinzel">
-          <h3 className="text-3xl font-medium">Total orders: {cart.length}</h3>
-          <h3 className="text-3xl font-medium">
+        <div className="flex items-center justify-between gap-8 font-cinzel">
+          <h3 className="md:text-3xl text-xl font-medium">Total orders: {cart.length}</h3>
+          <h3 className="md:text-3xl text-xl font-medium">
             total price: $
             {cart.reduce((total, singleCart) => total + singleCart.price, 0)}
           </h3>
