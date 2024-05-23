@@ -13,11 +13,15 @@ import MyPaymentHistory from "../Pages/Dashboard/MyPaymentHistory";
 import AddReview from "../Pages/Dashboard/AddReview";
 import MyBooking from "../Pages/Dashboard/MyBooking";
 import PrivateRoute from "../Routes/PrivateRoute";
+import AllUsers from "../Pages/Dashboard/Admin/AllUsers";
+import AdminRoute from "./AdminRoute";
+import Error from "../Pages/Error";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -43,12 +47,14 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
+    errorElement: <Error />,
     element: (
       <PrivateRoute>
         <DashboardLayout />
       </PrivateRoute>
     ),
     children: [
+      //user's routes
       {
         index: true,
         element: <UserHome />,
@@ -72,6 +78,16 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/myBooking",
         element: <MyBooking />,
+      },
+
+      // admin routes
+      {
+        path: "/dashboard/allUsers",
+        element: (
+          <AdminRoute>
+            <AllUsers />
+          </AdminRoute>
+        ),
       },
     ],
   },

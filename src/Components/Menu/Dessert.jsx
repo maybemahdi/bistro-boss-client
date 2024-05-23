@@ -9,7 +9,7 @@ const Dessert = () => {
   const { menu, loading } = useMenu();
   const [dessert, setDessert] = useState([]);
   useEffect(() => {
-    setDessert(menu.filter((s) => s.category === "dessert"));
+    setDessert(menu?.filter((s) => s.category === "dessert"));
   }, [menu]);
   if (loading) return <Loader />;
   return (

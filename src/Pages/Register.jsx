@@ -11,7 +11,8 @@ import toast from "react-hot-toast";
 const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { createUser, setLoading } = useAuth();
+  const from = location.state?.from?.pathname || "/";
+  const { createUser, setLoading, googleLogin } = useAuth();
   const {
     register,
     handleSubmit,
@@ -33,6 +34,17 @@ const Register = () => {
     } catch (err) {
       setLoading(false);
       console.log(err);
+      toast.error(err.message);
+    }
+  };
+  const handleGoogleLogin = async () => {
+    try {
+      await googleLogin();
+      navigate(from, { replace: true });
+      reset();
+      toast.success("Logged in Successful");
+    } catch (err) {
+      setLoading(false);
       toast.error(err.message);
     }
   };
@@ -72,7 +84,7 @@ const Register = () => {
               name="photo"
               {...register("photo", { required: true })}
               placeholder="Enter Your Photo URL"
-              data-temp-mail-org='0'
+              data-temp-mail-org="0"
             />
             {errors.photo && (
               <p className="text-red-500 mt-2">Photo URL is required</p>
@@ -141,9 +153,21 @@ const Register = () => {
           </p>
           <p>Or Sign in With</p>
           <div className="flex gap-8 items-center justify-center my-5">
-            <FaFacebook size={25} />
-            <FaGoogle size={25} />
-            <FaGithub size={25} />
+            <FaFacebook
+              disabled
+              className="disabled:cursor-not-allowed"
+              size={25}
+            />
+            <FaGoogle
+              className="cursor-pointer"
+              onClick={handleGoogleLogin}
+              size={25}
+            />
+            <FaGithub
+              disabled
+              className="disabled:cursor-not-allowed"
+              size={25}
+            />
           </div>
         </div>
       </div>

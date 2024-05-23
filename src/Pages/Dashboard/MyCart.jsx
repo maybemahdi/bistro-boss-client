@@ -43,17 +43,17 @@ const MyCart = () => {
         </p>
         <hr color="#E8E8E8" />
         <h3
-          className={`md:text-[40px] tex-[28px] border-y-4 text-center border-[#E8E8E8] text-[#151515] px-4 py-3`}
+          className={`md:text-[40px] uppercase text-[28px] border-y-4 text-center border-[#E8E8E8] text-[#151515] px-4 py-3`}
         >
           WANNA ADD MORE?
         </h3>
       </div>
-      <div className="bg-[#FFFFFF] shadow p-8 md:p-[50px]">
+      <div className="bg-[#FFFFFF] shadow p-5 md:p-[50px]">
         <div className="flex items-center justify-between gap-8 font-cinzel">
           <h3 className="md:text-3xl text-xl font-medium">Total orders: {cart.length}</h3>
           <h3 className="md:text-3xl text-xl font-medium">
             total price: $
-            {cart.reduce((total, singleCart) => total + singleCart.price, 0)}
+            {cart?.reduce((total, singleCart) => total + singleCart.price, 0).toFixed(2)}
           </h3>
           <button className="btn px-3 bg-[#D1A054] transition-all duration-300 hover:bg-[#ab8143] text-white w-fit py-1">
             Pay Now
@@ -87,7 +87,7 @@ const MyCart = () => {
                   </td>
                   <td>{singleCart.name}</td>
                   <td>${singleCart.price}</td>
-                  <td className="pl-6 cursor-pointer">
+                  <td className="pl-6">
                     <button
                       onClick={() => handleDelete(singleCart._id)}
                       className="bg-[#B91C1C] p-2 rounded"

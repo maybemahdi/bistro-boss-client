@@ -18,7 +18,7 @@ const Login = () => {
   const [givenText, setGivenText] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-  const { signIn, setLoading } = useAuth();
+  const { signIn, setLoading, googleLogin } = useAuth();
   const from = location.state?.from?.pathname || "/";
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -41,6 +41,17 @@ const Login = () => {
     console.log(data);
     try {
       await signIn(data.email, data.password);
+      navigate(from, { replace: true });
+      reset();
+      toast.success("Logged in Successful");
+    } catch (err) {
+      setLoading(false);
+      toast.error(err.message);
+    }
+  };
+  const handleGoogleLogin = async () => {
+    try {
+      await googleLogin();
       navigate(from, { replace: true });
       reset();
       toast.success("Logged in Successful");
@@ -116,9 +127,9 @@ const Login = () => {
           </p>
           <p>Or Sign in With</p>
           <div className="flex gap-8 items-center justify-center my-5">
-            <FaFacebook size={25} />
-            <FaGoogle size={25} />
-            <FaGithub size={25} />
+            <FaFacebook disabled className="disabled:cursor-not-allowed" size={25} />
+            <FaGoogle className="cursor-pointer" onClick={handleGoogleLogin} size={25} />
+            <FaGithub disabled className="disabled:cursor-not-allowed" size={25} />
           </div>
         </div>
       </div>

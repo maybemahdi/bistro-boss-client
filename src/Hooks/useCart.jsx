@@ -12,7 +12,8 @@ const useCart = () => {
     queryKey: ["cart"],
     queryFn: async () => {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/carts?email=${user.email}`
+        `${import.meta.env.VITE_API_URL}/carts?email=${user?.email}`,
+        { withCredentials: true }
       );
       return data;
     },
