@@ -9,7 +9,7 @@ const Menu = () => {
   const { menu, loading } = useMenu();
   const [popular, setPopular] = useState([]);
   useEffect(() => {
-    setPopular(menu.filter((d) => d.category === "popular"));
+    setPopular(menu?.filter((d) => d.category === "popular"));
   }, [menu]);
   // const [menu, setMenu] = useState([]);
   // const [loading, setLoading] = useState(true);
@@ -29,7 +29,7 @@ const Menu = () => {
         subHeading={"---Check it out---"}
       />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-10">
-        {popular.map((singleMenu) => (
+        {popular?.map((singleMenu) => (
           <div className="flex items-center gap-4" key={singleMenu._id}>
             <img
               style={{

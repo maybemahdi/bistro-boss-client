@@ -5,9 +5,10 @@ import useCart from "../../Hooks/useCart";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
+import LoadingSpinner from "../LoadingSpinner";
 const Recommendations = () => {
-  const { menu } = useMenu();
-  const salads = menu.filter((m) => m.category === "salad");
+  const { menu, loading } = useMenu();
+  const salads = menu?.filter((m) => m.category === "salad");
   const { user } = useAuth();
   const { refetch } = useCart();
   const navigate = useNavigate();
@@ -53,6 +54,7 @@ const Recommendations = () => {
       });
     }
   };
+  if(loading) return <LoadingSpinner/>
   return (
     <div className="my-10 w-[85%] mx-auto">
       <SectionStart
@@ -60,7 +62,7 @@ const Recommendations = () => {
         subHeading={"---Should Try---"}
       />
       <div className="my-12 grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {salads.slice(0, 3).map((s) => (
+        {salads?.slice(0, 3).map((s) => (
           <div key={s._id} className="bg-[#F3F3F3]">
             <img
               className="w-[424px] h-[300px] object-cover"

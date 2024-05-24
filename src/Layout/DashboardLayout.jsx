@@ -5,12 +5,13 @@ import {
   FaShoppingBag,
   FaShoppingCart,
   FaUsers,
+  FaUtensils,
   FaWallet,
 } from "react-icons/fa";
 import { HiMiniHome } from "react-icons/hi2";
 import { IoMdBookmarks } from "react-icons/io";
 import { IoBookmarksSharp, IoMailOpen, IoMenuSharp } from "react-icons/io5";
-import { MdFastfood, MdRateReview } from "react-icons/md";
+import { MdRateReview } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import useIsAdmin from "../Hooks/useIsAdmin";
@@ -85,7 +86,7 @@ const DashboardLayout = () => {
                 </li>
                 <li className="list-none">
                   <NavLink
-                    to={"/dashboard/addItems"}
+                    to={"/dashboard/addItem"}
                     className={({ isActive, isPending }) =>
                       isPending
                         ? "pending"
@@ -101,7 +102,7 @@ const DashboardLayout = () => {
                       fontSize: "16px",
                     }}
                   >
-                    <MdFastfood className="w-6 h-6" /> Add Items
+                    <FaUtensils className="w-6 h-6" /> Add Items
                   </NavLink>
                 </li>
                 <li className="list-none">

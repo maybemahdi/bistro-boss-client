@@ -6,11 +6,11 @@ import Loader from "./Loader";
 import { useState } from "react";
 const TabCategory = ({index}) => {
   const { menu, loading } = useMenu();
-  const salads = menu.filter((m) => m.category === "salad");
-  const pizza = menu.filter((m) => m.category === "pizza");
-  const soups = menu.filter((m) => m.category === "soup");
-  const desserts = menu.filter((m) => m.category === "dessert");
-  const drinks = menu.filter((m) => m.category === "drinks");
+  const salads = menu?.filter((m) => m.category === "salad");
+  const pizza = menu?.filter((m) => m.category === "pizza");
+  const soups = menu?.filter((m) => m.category === "soup");
+  const desserts = menu?.filter((m) => m.category === "dessert");
+  const drinks = menu?.filter((m) => m.category === "drinks");
   const [tabIndex, setTabIndex] = useState(index ? parseFloat(index) : 0)
   if(loading) return <Loader/>
   return (
