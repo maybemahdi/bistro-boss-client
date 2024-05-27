@@ -3,6 +3,7 @@ import useCart from "../../Hooks/useCart";
 import LoadingSpinner from "../../Components/LoadingSpinner";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const MyCart = () => {
   const { cart, refetch, isLoading } = useCart();
@@ -50,14 +51,29 @@ const MyCart = () => {
       </div>
       <div className="bg-[#FFFFFF] shadow p-5 md:p-[50px]">
         <div className="flex items-center justify-between gap-8 font-cinzel">
-          <h3 className="md:text-3xl text-xl font-medium">Total orders: {cart.length}</h3>
+          <h3 className="md:text-3xl text-xl font-medium">
+            Total orders: {cart.length}
+          </h3>
           <h3 className="md:text-3xl text-xl font-medium">
             total price: $
-            {cart?.reduce((total, singleCart) => total + singleCart.price, 0).toFixed(2)}
+            {cart
+              ?.reduce((total, singleCart) => total + singleCart.price, 0)
+              .toFixed(2)}
           </h3>
-          <button className="btn px-3 bg-[#D1A054] transition-all duration-300 hover:bg-[#ab8143] text-white w-fit py-1">
-            Pay Now
-          </button>
+          {cart?.length > 0 ? (
+            <Link to={"/dashboard/payment"}>
+              <button className="btn px-3 bg-[#D1A054] transition-all duration-300 hover:bg-[#ab8143] text-white w-fit py-1">
+                Pay Now
+              </button>
+            </Link>
+          ) : (
+            <button
+              disabled
+              className="btn disabled:cursor-not-allowed disabled:bg-[#85848461] px-3 bg-[#D1A054] transition-all duration-300 hover:bg-[#ab8143] text-white w-fit py-1"
+            >
+              Pay Now
+            </button>
+          )}
         </div>
         <div className="overflow-x-auto my-10">
           <table className="table">
