@@ -18,7 +18,7 @@ const Testimonials = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get("http://localhost:5000/reviews");
+      const { data } = await axios.get("https://bistro-boss-server-alpha-jet.vercel.app/reviews");
       setReviews(data);
       setLoading(false);
     };
