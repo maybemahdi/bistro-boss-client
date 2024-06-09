@@ -20,7 +20,7 @@ const MyPaymentHistory = () => {
   });
   if (isLoading) return <LoadingSpinner />;
   return (
-    <div className="mb-10 mt-5 w-full md:w-3/4">
+    <div className="mb-10 mt-5 mx-auto w-full md:w-3/4">
       <div className="flex px-3 font-poppins flex-col gap-1 mb-10 items-center justify-center">
         <p className="text-[#D99904] text-center text-[18px] italic">
           ---At a Glance!---

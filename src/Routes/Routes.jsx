@@ -20,6 +20,8 @@ import AddItem from "../Pages/Dashboard/Admin/AddItem";
 import ManageItems from "../Pages/Dashboard/Admin/ManageItems";
 import UpdateItem from "../Pages/Dashboard/Admin/UpdateItem";
 import Payment from "../Pages/Payment/Payment";
+import AdminHome from "../Pages/Dashboard/Admin/AdminHome";
+import DashboardHome from "../Pages/Dashboard/DashboardHome";
 
 export const router = createBrowserRouter([
   {
@@ -61,7 +63,7 @@ export const router = createBrowserRouter([
       //user's routes
       {
         index: true,
-        element: <UserHome />,
+        element: <DashboardHome/>,
       },
       {
         path: "/dashboard/myReservation",

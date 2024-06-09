@@ -389,7 +389,7 @@ const DashboardLayout = () => {
             </li>
           </div>
         </div>
-        <div className="flex-1 p-8 lg:ml-[280px] flex flex-col items-center justify-center">
+        <div className="flex-1 p-8 lg:ml-[280px] flex flex-col">
           <Outlet />
         </div>
       </div>

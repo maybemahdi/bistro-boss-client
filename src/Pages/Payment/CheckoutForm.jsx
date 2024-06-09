@@ -17,8 +17,10 @@ const CheckoutForm = () => {
   const [transactionId, setTransactionId] = useState("");
   const navigate = useNavigate();
 
-  const totalPrice = cart
-    ?.reduce((total, singleCart) => total + singleCart.price, 0);
+  const totalPrice = cart?.reduce(
+    (total, singleCart) => total + singleCart.price,
+    0
+  );
   console.log(totalPrice);
 
   useEffect(() => {
@@ -99,7 +101,7 @@ const CheckoutForm = () => {
           Swal.fire({
             title: "Good job!",
             text: "Thank you for the payment!",
-            icon: "success"
+            icon: "success",
           });
           navigate("/dashboard/myPaymentHistory");
         }
